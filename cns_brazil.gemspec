@@ -10,4 +10,6 @@ Gem::Specification.new do |s|
 
   s.homepage    = "https://rubygems.org/gems/cns_brazil"
   s.license     = "MIT"
+
+  s.add_development_dependency "rspec"
 end
