@@ -3,5 +3,5 @@ class User
 
   attr_accessor :cns
 
-  validates :cns, 'CnsBrazil::Cns': true
+  validates :cns, '::CnsBrazil::Cns': true
 end
