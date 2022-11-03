@@ -19,10 +19,7 @@ module CnsBrazil
       pis = @value[0, 11]
       cns_to_array = pis.chars.map(&:to_i)
 
-      sum_result = cns_to_array.each_with_index.reduce(0) do |sum, (element, index)|
-        sum += element * (15 - index)
-        sum
-      end
+      sum_result = sum_result(pis)
 
       rest = sum_result % 11
       verificator_digit = rest.zero? ? 0 : 11 - rest
@@ -32,16 +29,21 @@ module CnsBrazil
     end
 
     def start_with_7_8_or_9?
-      cns_to_array = @value.chars.map(&:to_i)
+      sum_result = sum_result(@value)
+
+      rest = sum_result % 11
+
+      rest.zero?
+    end
+
+
+    def sum_result(value)
+      cns_to_array = value.chars.map(&:to_i)
 
       sum_result = cns_to_array.each_with_index.reduce(0) do |sum, (element, index)|
         sum += element * (15 - index)
         sum
       end
-
-      rest = sum_result % 11
-
-      rest.zero?
     end
   end
 end
