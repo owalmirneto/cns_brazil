@@ -67,46 +67,50 @@ RSpec.describe CnsBrazil::CnsValidator do
     end
 
     context 'When value has length 14' do
-      specify do
+      it 'record is not valid and adds error to attribute' do
         value = '12345678912314'
-
-        user = User.new
+        user     = User.new
         user.cns = value
+
+        user.valid?
 
         expect(value.length).to eq(14)
-        expect(user).to_not be_valid
+        expect(user.errors[:cns]).not_to be_empty
       end
 
-      specify do
-        value = 12345678912314
-
-        user = User.new
+      it 'record is not valid and adds error to attribute'  do
+        value    = 12345678912314
+        user     = User.new
         user.cns = value
 
+        user.valid?
+
         expect(value.to_s.length).to eq(14)
-        expect(user).to_not be_valid
+        expect(user.errors[:cns]).not_to be_empty
       end
     end
 
     context 'When value has length 16' do
-      specify do
+      it 'record is not valid and adds error to attribute'  do
         value = '1234567891234516'
-
         user = User.new
         user.cns = value
+
+        user.valid?
 
         expect(value.length).to eq(16)
-        expect(user).to_not be_valid
+        expect(user.errors[:cns]).not_to be_empty
       end
 
-      specify do
+      it 'record is not valid and adds error to attribute' do
         value = 1234567891234516
-
         user = User.new
         user.cns = value
 
+        user.valid?
+
         expect(value.to_s.length).to eq(16)
-        expect(user).to_not be_valid
+        expect(user.errors[:cns]).not_to be_empty
       end
     end
 

@@ -5,7 +5,7 @@ module CnsBrazil
 
       cns = CnsBrazil::Cns.new(value: value)
 
-      record.errors.add attribute, (options[:message] || 'não é valido') unless cns.valid?
+      record.errors.add(attribute, (options[:message] || "is not an cns")) unless cns.valid?
     end
   end
 end
