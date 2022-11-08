@@ -10,8 +10,25 @@ module Shoulda
       end
 
       class ValidateCnsMatcher < ValidationMatcher
+        ALLOW_VALUES = [
+          '166947669770008',
+          222491445220008,
+          '736 3347 8546 0000',
+          '807769250350009',
+          954180214890002
+        ].freeze
+
+        DISALLOW_VALUES = ['12345678912314', '1234567891234516'].freeze
+
+        def initialize(attribute)
+          super(attribute)
+          @options = {}
+        end
+
         def description
-          'requires a valid CNS'
+          message = 'requires a valid CNS'
+
+          message += ' included blank' if expects_to_allow_blank?
         end
 
         def failure_message
@@ -21,19 +38,13 @@ module Shoulda
         def matches?(subject)
           super(subject)
 
-          (
-            disallows_value_of('12345678912314') &&
-            disallows_value_of('1234567891234516')
-          ) &&
-          (
-            allows_value_of('') &&
-            allows_value_of(nil) &&
-            allows_value_of('166947669770008') &&
-            allows_value_of(222491445220008) &&
-            allows_value_of('736 3347 8546 0000') &&
-            allows_value_of('807769250350009') &&
-            allows_value_of(954180214890002)
-          )
+          ALLOW_VALUES.each { |value| allows_value_of(value) }
+        end
+
+        def does_not_match?(subject)
+          super(subject)
+
+          DISALLOW_VALUES.each { |value| disallows_value_of(value) }
         end
       end
     end

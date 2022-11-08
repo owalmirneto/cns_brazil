@@ -3,5 +3,5 @@ class UserCnsRequired
 
   attr_accessor :cns
 
-  validates :cns, presence: true, '::CnsBrazil::Cns': true
+  validates :cns, '::CnsBrazil::Cns': true
 end

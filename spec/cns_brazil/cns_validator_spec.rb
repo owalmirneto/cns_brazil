@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe CnsBrazil::CnsValidator do
-  describe '#cns presence is true' do
+  describe '#cns disallow blank' do
     context 'When value is nil' do
       specify do
         value = nil
@@ -34,12 +34,12 @@ RSpec.describe CnsBrazil::CnsValidator do
     end
   end
 
-  describe '#cns presence is false' do
+  describe '#cns allow blank' do
     context 'When value is nil' do
       specify do
         value = nil
 
-        user = User.new
+        user = UserAllowBlank.new
         user.cns = value
 
         expect(user).to be_valid
@@ -50,7 +50,7 @@ RSpec.describe CnsBrazil::CnsValidator do
       specify do
         value = ' '
 
-        user = User.new
+        user = UserAllowBlank.new
         user.cns = value
 
         expect(user).to be_valid
@@ -59,7 +59,7 @@ RSpec.describe CnsBrazil::CnsValidator do
       specify do
         value = ''
 
-        user = User.new
+        user = UserAllowBlank.new
         user.cns = value
 
         expect(user).to be_valid
@@ -69,7 +69,7 @@ RSpec.describe CnsBrazil::CnsValidator do
     context 'When value has length 14' do
       it 'record is not valid and adds error to attribute' do
         value = '12345678912314'
-        user     = User.new
+        user     = UserAllowBlank.new
         user.cns = value
 
         user.valid?
@@ -80,7 +80,7 @@ RSpec.describe CnsBrazil::CnsValidator do
 
       it 'record is not valid and adds error to attribute'  do
         value    = 12345678912314
-        user     = User.new
+        user     = UserAllowBlank.new
         user.cns = value
 
         user.valid?
@@ -93,7 +93,7 @@ RSpec.describe CnsBrazil::CnsValidator do
     context 'When value has length 16' do
       it 'record is not valid and adds error to attribute'  do
         value = '1234567891234516'
-        user = User.new
+        user = UserAllowBlank.new
         user.cns = value
 
         user.valid?
@@ -104,7 +104,7 @@ RSpec.describe CnsBrazil::CnsValidator do
 
       it 'record is not valid and adds error to attribute' do
         value = 1234567891234516
-        user = User.new
+        user = UserAllowBlank.new
         user.cns = value
 
         user.valid?
@@ -119,7 +119,7 @@ RSpec.describe CnsBrazil::CnsValidator do
         specify do
           value = '166947669770008'
 
-          user = User.new
+          user = UserAllowBlank.new
           user.cns = value
 
           expect(user).to be_valid
@@ -128,7 +128,7 @@ RSpec.describe CnsBrazil::CnsValidator do
         specify do
           value = 166947669770008
 
-          user = User.new
+          user = UserAllowBlank.new
           user.cns = value
 
           expect(user).to be_valid
@@ -138,7 +138,7 @@ RSpec.describe CnsBrazil::CnsValidator do
           specify do
             value = '166 9476 6977 0008'
 
-            user = User.new
+            user = UserAllowBlank.new
             user.cns = value
 
             expect(user).to be_valid
@@ -152,7 +152,7 @@ RSpec.describe CnsBrazil::CnsValidator do
         specify do
           value = '222491445220008'
 
-          user = User.new
+          user = UserAllowBlank.new
           user.cns = value
 
           expect(user).to be_valid
@@ -161,7 +161,7 @@ RSpec.describe CnsBrazil::CnsValidator do
         specify do
           value = 222491445220008
 
-          user = User.new
+          user = UserAllowBlank.new
           user.cns = value
 
           expect(user).to be_valid
@@ -171,7 +171,7 @@ RSpec.describe CnsBrazil::CnsValidator do
           specify do
             value = '222 4914 4522 0008'
 
-            user = User.new
+            user = UserAllowBlank.new
             user.cns = value
 
             expect(user).to be_valid
@@ -185,7 +185,7 @@ RSpec.describe CnsBrazil::CnsValidator do
         specify do
           value = '736334785460000'
 
-          user = User.new
+          user = UserAllowBlank.new
           user.cns = value
 
           expect(user).to be_valid
@@ -194,7 +194,7 @@ RSpec.describe CnsBrazil::CnsValidator do
         specify do
           value = 736334785460000
 
-          user = User.new
+          user = UserAllowBlank.new
           user.cns = value
 
           expect(user).to be_valid
@@ -204,7 +204,7 @@ RSpec.describe CnsBrazil::CnsValidator do
           specify do
             value = '736 3347 8546 0000'
 
-            user = User.new
+            user = UserAllowBlank.new
             user.cns = value
 
             expect(user).to be_valid
@@ -218,7 +218,7 @@ RSpec.describe CnsBrazil::CnsValidator do
         specify do
           value = '807769250350009'
 
-          user = User.new
+          user = UserAllowBlank.new
           user.cns = value
 
           expect(user).to be_valid
@@ -227,7 +227,7 @@ RSpec.describe CnsBrazil::CnsValidator do
         specify do
           value = 807769250350009
 
-          user = User.new
+          user = UserAllowBlank.new
           user.cns = value
 
           expect(user).to be_valid
@@ -237,7 +237,7 @@ RSpec.describe CnsBrazil::CnsValidator do
           specify do
             value = '807 7692 5035 0009'
 
-            user = User.new
+            user = UserAllowBlank.new
             user.cns = value
 
             expect(user).to be_valid
@@ -251,7 +251,7 @@ RSpec.describe CnsBrazil::CnsValidator do
         specify do
           value = '954180214890002'
 
-          user = User.new
+          user = UserAllowBlank.new
           user.cns = value
 
           expect(user).to be_valid
@@ -260,7 +260,7 @@ RSpec.describe CnsBrazil::CnsValidator do
         specify do
           value = 954180214890002
 
-          user = User.new
+          user = UserAllowBlank.new
           user.cns = value
 
           expect(user).to be_valid
@@ -270,7 +270,7 @@ RSpec.describe CnsBrazil::CnsValidator do
           specify do
             value = '954 1802 1489 0002'
 
-            user = User.new
+            user = UserAllowBlank.new
             user.cns = value
 
             expect(user).to be_valid

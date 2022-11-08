@@ -3,9 +3,18 @@
 require 'spec_helper'
 
 RSpec.describe Shoulda::Matchers::ActiveModel::ValidateCnsMatcher do
-  subject { User.new }
+  context 'Allow blank' do
+    subject { UserAllowBlank.new }
 
-  it { is_expected.to validate_cns(:cns) }
-  it { is_expected.to validate_cns }
-  it { is_expected.not_to validate_cns(:name) }
+    specify { is_expected.to validate_cns(:cns).allow_blank }
+    specify { is_expected.to validate_cns.allow_blank }
+    specify { is_expected.not_to validate_cns(:name) }
+  end
+
+  context 'Not allow blank' do
+    subject { UserCnsRequired.new }
+
+    specify { is_expected.to validate_cns(:cns) }
+    specify { is_expected.to validate_cns }
+  end
 end
