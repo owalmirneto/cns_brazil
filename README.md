@@ -1,4 +1,5 @@
 # CNS Brazil
+ - CNS (Cartão Nacional de Saúde) - CNS is a national health card
  - Is a validator and generator based in algorithm from https://integracao.esusab.ufsc.br/v211/docs/algoritmo_CNS.html
 
 ## Usage
