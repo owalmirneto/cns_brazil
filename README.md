@@ -57,7 +57,7 @@ cns_validator.valid? # true || false
 ```ruby
 require "cns_brazil"
 
-CnsBrazil::Cns.generate  # returns a valida CNS
+CnsBrazil::Cns.generate  # returns a valid CNS
 ```
 
 ### Test
