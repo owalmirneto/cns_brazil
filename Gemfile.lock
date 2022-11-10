@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    cns_brazil (0.0.1)
-      activemodel
+    cns_brazil (1.0.1)
+      activemodel (= 7.0.4)
 
 GEM
   remote: https://rubygems.org/
@@ -64,9 +64,9 @@ PLATFORMS
 
 DEPENDENCIES
   cns_brazil!
-  rspec
-  rubocop
-  shoulda-matchers
+  rspec (= 3.12.0)
+  rubocop (= 1.38.0)
+  shoulda-matchers (= 5.2.0)
 
 BUNDLED WITH
    2.1.4
