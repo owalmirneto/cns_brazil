@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CnsBrazil
   class Cns
     def initialize(value:)
@@ -17,7 +19,6 @@ module CnsBrazil
 
     def start_with_1_or_2?
       pis = @value[0, 11]
-      cns_to_array = pis.chars.map(&:to_i)
 
       sum_result = sum_result(pis)
 
@@ -36,11 +37,10 @@ module CnsBrazil
       rest.zero?
     end
 
-
     def sum_result(value)
       cns_to_array = value.chars.map(&:to_i)
 
-      sum_result = cns_to_array.each_with_index.reduce(0) do |sum, (element, index)|
+      cns_to_array.each_with_index.reduce(0) do |sum, (element, index)|
         sum += element * (15 - index)
         sum
       end

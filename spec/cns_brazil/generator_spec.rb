@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe CnsBrazil::Generator do
@@ -17,7 +19,7 @@ RSpec.describe CnsBrazil::Generator do
     end
   end
 
-  describe ".call" do
+  describe '.call' do
     it 'be valid 15 times' do
       15.times do
         generator = described_class.new

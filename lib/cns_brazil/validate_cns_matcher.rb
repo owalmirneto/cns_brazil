@@ -12,13 +12,13 @@ module Shoulda
       class ValidateCnsMatcher < ValidationMatcher
         ALLOW_VALUES = [
           '166947669770008',
-          222491445220008,
+          222_491_445_220_008,
           '736 3347 8546 0000',
           '807769250350009',
-          954180214890002
+          954_180_214_890_002
         ].freeze
 
-        DISALLOW_VALUES = ['12345678912314', '1234567891234516'].freeze
+        DISALLOW_VALUES = %w[12345678912314 1234567891234516].freeze
 
         def initialize(attribute)
           super(attribute)
@@ -29,6 +29,8 @@ module Shoulda
           message = 'requires a valid CNS'
 
           message += ' included blank' if expects_to_allow_blank?
+
+          message
         end
 
         def failure_message

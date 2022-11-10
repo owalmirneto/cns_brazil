@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe CnsBrazil::Cns do
@@ -12,7 +14,7 @@ RSpec.describe CnsBrazil::Cns do
       end
 
       specify do
-        value = 12345678912314
+        value = 12_345_678_912_314
         cns_obj = described_class.new(value: value)
 
         expect(value.to_s.length).to eq(14)
@@ -30,7 +32,7 @@ RSpec.describe CnsBrazil::Cns do
       end
 
       specify do
-        value = 1234567891234516
+        value = 1_234_567_891_234_516
         cns_obj = described_class.new(value: value)
 
         expect(value.to_s.length).to eq(16)
@@ -48,7 +50,7 @@ RSpec.describe CnsBrazil::Cns do
         end
 
         specify do
-          value = 166947669770008
+          value = 166_947_669_770_008
           cns_obj = described_class.new(value: value)
 
           expect(cns_obj).to be_valid
@@ -75,7 +77,7 @@ RSpec.describe CnsBrazil::Cns do
         end
 
         specify do
-          value = 222491445220008
+          value = 222_491_445_220_008
           cns_obj = described_class.new(value: value)
 
           expect(cns_obj).to be_valid
@@ -102,7 +104,7 @@ RSpec.describe CnsBrazil::Cns do
         end
 
         specify do
-          value = 736334785460000
+          value = 736_334_785_460_000
           cns_obj = described_class.new(value: value)
 
           expect(cns_obj).to be_valid
@@ -129,7 +131,7 @@ RSpec.describe CnsBrazil::Cns do
         end
 
         specify do
-          value = 807769250350009
+          value = 807_769_250_350_009
           cns_obj = described_class.new(value: value)
 
           expect(cns_obj).to be_valid
@@ -156,7 +158,7 @@ RSpec.describe CnsBrazil::Cns do
         end
 
         specify do
-          value = 954180214890002
+          value = 954_180_214_890_002
           cns_obj = described_class.new(value: value)
 
           expect(cns_obj).to be_valid

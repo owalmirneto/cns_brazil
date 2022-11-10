@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe CnsBrazil::CnsValidator do
@@ -78,8 +80,8 @@ RSpec.describe CnsBrazil::CnsValidator do
         expect(user.errors[:cns]).not_to be_empty
       end
 
-      it 'record is not valid and adds error to attribute'  do
-        value    = 12345678912314
+      it 'record is not valid and adds error to attribute' do
+        value    = 12_345_678_912_314
         user     = UserAllowBlank.new
         user.cns = value
 
@@ -91,7 +93,7 @@ RSpec.describe CnsBrazil::CnsValidator do
     end
 
     context 'When value has length 16' do
-      it 'record is not valid and adds error to attribute'  do
+      it 'record is not valid and adds error to attribute' do
         value = '1234567891234516'
         user = UserAllowBlank.new
         user.cns = value
@@ -103,7 +105,7 @@ RSpec.describe CnsBrazil::CnsValidator do
       end
 
       it 'record is not valid and adds error to attribute' do
-        value = 1234567891234516
+        value = 1_234_567_891_234_516
         user = UserAllowBlank.new
         user.cns = value
 
@@ -126,7 +128,7 @@ RSpec.describe CnsBrazil::CnsValidator do
         end
 
         specify do
-          value = 166947669770008
+          value = 166_947_669_770_008
 
           user = UserAllowBlank.new
           user.cns = value
@@ -159,7 +161,7 @@ RSpec.describe CnsBrazil::CnsValidator do
         end
 
         specify do
-          value = 222491445220008
+          value = 222_491_445_220_008
 
           user = UserAllowBlank.new
           user.cns = value
@@ -192,7 +194,7 @@ RSpec.describe CnsBrazil::CnsValidator do
         end
 
         specify do
-          value = 736334785460000
+          value = 736_334_785_460_000
 
           user = UserAllowBlank.new
           user.cns = value
@@ -225,7 +227,7 @@ RSpec.describe CnsBrazil::CnsValidator do
         end
 
         specify do
-          value = 807769250350009
+          value = 807_769_250_350_009
 
           user = UserAllowBlank.new
           user.cns = value
@@ -258,7 +260,7 @@ RSpec.describe CnsBrazil::CnsValidator do
         end
 
         specify do
-          value = 954180214890002
+          value = 954_180_214_890_002
 
           user = UserAllowBlank.new
           user.cns = value

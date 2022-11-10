@@ -1,17 +1,17 @@
+# frozen_string_literal: true
+
 module CnsBrazil
   class Generator
     def call
       result = generate
 
-      while result.to_s.length != 15
-        result = generate
-      end
+      result = generate while result.to_s.length != 15
 
       result
     end
 
     def block
-      first_number.to_s + block_number + block_number;
+      first_number.to_s + block_number + block_number
     end
 
     private
@@ -26,7 +26,7 @@ module CnsBrazil
     end
 
     def block_number
-      '0' + rand(11111..99999).to_s.chop
+      "0#{rand(11_111..99_999).to_s.chop}"
     end
 
     def generate
@@ -34,16 +34,18 @@ module CnsBrazil
       rest              = sum_result(cns) % 11
       verificator_digit = rest.zero? ? 0 : 11 - rest
 
-      if verificator_digit === 10
+      if verificator_digit == 10
         sum_result = sum_result(cns)
         sum_result += 2
 
-        resto             = sum_result % 11;
-        verificator_digit = 11 - resto;
-        cns               += "001" + verificator_digit.to_s;
+        resto             = sum_result % 11
+        verificator_digit = 11 - resto
+        cns += "001#{verificator_digit}"
       else
-        cns += "000" + verificator_digit.to_s;
+        cns += "000#{verificator_digit}"
       end
+
+      cns
     end
 
     def sum_result(cns)
