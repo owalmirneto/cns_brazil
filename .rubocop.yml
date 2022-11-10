@@ -1,5 +1,9 @@
 AllCops:
-  TargetRubyVersion: 2.2
+  NewCops: enable
+  TargetRubyVersion: 2.7.6
+  Exclude:
+    - 'cns_brazil.gemspec'
+    - 'Gemfile'
 
 Metrics/AbcSize:
   Max: 17
