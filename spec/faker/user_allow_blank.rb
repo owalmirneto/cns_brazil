@@ -5,5 +5,5 @@ class UserAllowBlank
 
   attr_accessor :cns, :name
 
-  validates :cns, allow_blank: true, '::CnsBrazil::Cns': true
+  validates :cns, '::CnsBrazil::Cns': true, allow_blank: true
 end

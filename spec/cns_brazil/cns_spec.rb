@@ -3,6 +3,17 @@
 require 'spec_helper'
 
 RSpec.describe CnsBrazil::Cns do
+  describe '.generate' do
+    it 'be valid 15 times' do
+      15.times do
+        cns       = described_class.generate
+        validator = described_class.new(value: cns)
+
+        expect(validator).to be_valid
+      end
+    end
+  end
+
   describe '.valid?' do
     context 'When value has length 14' do
       specify do

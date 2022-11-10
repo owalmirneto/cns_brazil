@@ -15,6 +15,12 @@ module CnsBrazil
       false
     end
 
+    def self.generate
+      generator = CnsBrazil::Generator.new
+
+      generator.call
+    end
+
     private
 
     def start_with_1_or_2?
