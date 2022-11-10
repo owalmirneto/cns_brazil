@@ -1,5 +1,5 @@
 # CNS Brazil
- - Is a validator and generator to based in algorithm from https://integracao.esusab.ufsc.br/v211/docs/algoritmo_CNS.html
+ - Is a validator and generator based in algorithm from https://integracao.esusab.ufsc.br/v211/docs/algoritmo_CNS.html
 
 ## Usage
 ### Installing
@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
 end
 ```
 
- - Allow blank_value
+ - Allow blank value
 
 ```ruby
 class User < ActiveRecord::Base
