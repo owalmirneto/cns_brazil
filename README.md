@@ -1,18 +1,62 @@
-## Usage
+# CNS Brazil
+ - Is a validator and generator to based in algorithm from https://integracao.esusab.ufsc.br/v211/docs/algoritmo_CNS.html
 
-Just use as any other validator:
+## Usage
+### Installing
+Add this line to your application's Gemfile:
+
+    gem 'cns_brazil'
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install cns_brazil
+
+### Validator
+#### ActiveRecord
+
+ - Just use as any other validator:
 
 ```ruby
 class User < ActiveRecord::Base
-  validates :cns, cns: true
+  validates :cns, '::CnsBrazil::Cns': true
 end
 ```
-Or
+ - Use with anny column name
 
 ```ruby
 class User < ActiveRecord::Base
-  validates :my_cns, cns: true
+  validates :my_cns, '::CnsBrazil::Cns': true
 end
+```
+
+ - Allow blank_value
+
+```ruby
+class User < ActiveRecord::Base
+  validates :cns, '::CnsBrazil::Cns': true, allow_blank: true
+end
+```
+
+#### Elsewhere
+
+```ruby
+require "cns_brazil"
+
+cns_validator = CnsBrazil::Cns.new(value: '1234567891234516')
+
+cns_validator.valid? # true || false
+```
+
+### Generator
+
+```ruby
+require "cns_brazil"
+
+CnsBrazil::Cns.generate  # returns a valida CNS
 ```
 
 ## Contributing
