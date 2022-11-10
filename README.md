@@ -59,6 +59,21 @@ require "cns_brazil"
 CnsBrazil::Cns.generate  # returns a valida CNS
 ```
 
+### Test
+
+Use in your tests:
+
+```ruby
+specify { is_expected.to validate_cns } # It will test the attribute :cns by default
+specify { is_expected.to validate_cns(:my_cns) }
+```
+With blank value
+
+```ruby
+specify { is_expected.to validate_cns.allow_blank }
+specify { is_expected.to validate_cns(:my_cns).allow_blank }
+```
+
 ## Contributing
 
  - Run using Docker: `docker-compose run web bash`
