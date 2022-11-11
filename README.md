@@ -74,6 +74,9 @@ With blank value
 specify { is_expected.to validate_cns.allow_blank }
 specify { is_expected.to validate_cns(:my_cns).allow_blank }
 ```
+## Usage example
+
+ - [Project Example LINK](https://github.com/HDias/HEalth-Challenge)
 
 ## Contributing
 
