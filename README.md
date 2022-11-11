@@ -62,6 +62,14 @@ CnsBrazil::Cns.generate  # returns a valid CNS
 
 ### Test
 
+_Obs: If your project has shoulda-matchers gem you can use next matcher_
+
+Create a file `spec/support/cns_brazil.rb` and add next content
+
+```ruby
+require 'cns_brazil/validate_cns_matcher'
+```
+
 Use in your tests:
 
 ```ruby
