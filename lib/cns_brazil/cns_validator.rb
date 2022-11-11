@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+require 'active_model'
 
 module CnsBrazil
-  class CnsValidator < ActiveModel::EachValidator
+  class CnsValidator < ::ActiveModel::EachValidator
     def validate_each(record, attribute, value)
       return true if options[:allow_blank] && value.blank?
 
