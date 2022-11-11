@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'cns_brazil'
-  s.version     = '1.0.3'
+  s.version     = '1.0.4'
   s.summary     = 'Validate CNS (Cartão Nacional de Saúde)'
   s.description = 'CNS is a national health card from Brazil'
   s.authors     = ['Horecio Araujo Dias']
