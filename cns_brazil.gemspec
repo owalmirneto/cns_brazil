@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/HDias/CnsBrazil'
   s.license     = 'MIT'
 
+  s.add_development_dependency 'coveralls', '0.8.23'
   s.add_development_dependency 'rspec', '3.12.0'
   s.add_development_dependency 'rubocop', '1.38.0'
   s.add_development_dependency 'shoulda-matchers', '5.2.0'
