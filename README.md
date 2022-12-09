@@ -1,5 +1,4 @@
 # CNS Brazil
-[![Coverage Status](https://coveralls.io/repos/github/HDias/CnsBrazil/badge.svg?branch=main)](https://coveralls.io/github/HDias/CnsBrazil?branch=main)
 
  - CNS (Cartão Nacional de Saúde) - CNS is a national health card
  - Is a validator and generator based in algorithm from https://integracao.esusab.ufsc.br/v211/docs/algoritmo_CNS.html
