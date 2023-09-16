@@ -5,11 +5,11 @@ require 'active_model'
 module CnsBrazil
   class CnsValidator < ::ActiveModel::EachValidator
     def validate_each(record, attribute, value)
-      return true if options[:allow_blank] && value.blank?
+      return if value.blank?
 
-      cns = CnsBrazil::Cns.new(value: value)
+      return if CnsBrazil::Cns.new(value: value).valid?
 
-      record.errors.add(attribute, (options[:message] || 'is not an cns')) unless cns.valid?
+      record.errors.add(attribute, options[:message].presence || :invalid)
     end
   end
 end
