@@ -19,5 +19,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rubocop', '1.38.0'
   s.add_development_dependency 'shoulda-matchers', '5.2.0'
 
-  s.add_runtime_dependency 'activemodel', '7.0.4'
+  s.add_runtime_dependency 'activemodel', '>= 7.0.4'
 end
